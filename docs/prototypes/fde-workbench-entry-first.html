@@ -1,0 +1,982 @@
+<!-- Design read: enterprise desktop workbench for FDE delivery teams, Fluent-inspired, calm, precise, and information-dense. Dials: variance 4, motion 3, density 7. Throwaway UI prototype with three structural variants. -->
+<div id="fde-entry-first" data-section="blueprint" data-variant="a">
+  <style>
+    #fde-entry-first {
+      color-scheme: light dark;
+      width: 100%;
+      --fde-bg: light-dark(#eef2f7, #0b111b);
+      --fde-panel: light-dark(#ffffff, #111a28);
+      --fde-surface: light-dark(#f7f9fc, #172233);
+      --fde-surface-strong: light-dark(#e9eef6, #1d2a3e);
+      --fde-border: light-dark(#d8e0eb, #2b3a50);
+      --fde-border-strong: light-dark(#b9c6d8, #40536e);
+      --fde-text: light-dark(#142033, #edf3fb);
+      --fde-muted: light-dark(#5f6f84, #9aacbf);
+      --fde-faint: light-dark(#7e8ca0, #778aa4);
+      --fde-accent: light-dark(#0b63ce, #63a7ff);
+      --fde-accent-ink: light-dark(#ffffff, #071321);
+      --fde-accent-soft: light-dark(#e7f1ff, #173658);
+      --fde-sidebar: light-dark(#152236, #0d1725);
+      --fde-sidebar-2: light-dark(#1d2d45, #142135);
+      --fde-sidebar-text: #dce7f6;
+      --fde-sidebar-muted: #91a4bf;
+      --fde-shadow: light-dark(rgba(35, 57, 88, .14), rgba(0, 0, 0, .32));
+      color: var(--fde-text);
+      font-family: Geist, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    #fde-entry-first * { box-sizing: border-box; }
+    #fde-entry-first button { font: inherit; }
+    #fde-entry-first .fde-window {
+      overflow: hidden;
+      border: 1px solid var(--fde-border);
+      border-radius: 12px;
+      background: var(--fde-bg);
+      box-shadow: 0 20px 48px var(--fde-shadow);
+    }
+    #fde-entry-first .fde-topbar {
+      display: grid;
+      grid-template-columns: minmax(210px, 1fr) auto minmax(210px, 1fr);
+      align-items: center;
+      gap: 14px;
+      min-height: 58px;
+      padding: 8px 14px;
+      color: var(--fde-sidebar-text);
+      background: var(--fde-sidebar);
+    }
+    #fde-entry-first .fde-brand,
+    #fde-entry-first .fde-top-actions,
+    #fde-entry-first .fde-tabs,
+    #fde-entry-first .fde-inline,
+    #fde-entry-first .fde-mode-title,
+    #fde-entry-first .fde-row-head,
+    #fde-entry-first .fde-variant-switcher {
+      display: flex;
+      align-items: center;
+    }
+    #fde-entry-first .fde-brand { gap: 10px; min-width: 0; }
+    #fde-entry-first .fde-mark {
+      display: grid;
+      flex: 0 0 auto;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      color: #ffffff;
+      background: #0b63ce;
+      font-weight: 700;
+      letter-spacing: -.03em;
+    }
+    #fde-entry-first .fde-brand-copy { min-width: 0; }
+    #fde-entry-first .fde-brand-copy strong,
+    #fde-entry-first .fde-brand-copy span { display: block; }
+    #fde-entry-first .fde-brand-copy strong { font-size: 13px; font-weight: 600; }
+    #fde-entry-first .fde-brand-copy span { color: var(--fde-sidebar-muted); font-size: 11px; }
+    #fde-entry-first .fde-tabs {
+      gap: 3px;
+      padding: 3px;
+      border-radius: 8px;
+      background: var(--fde-sidebar-2);
+    }
+    #fde-entry-first .fde-tab,
+    #fde-entry-first .fde-icon-action,
+    #fde-entry-first .fde-secondary-action,
+    #fde-entry-first .fde-primary-action,
+    #fde-entry-first .fde-mode-action,
+    #fde-entry-first .fde-variant-button,
+    #fde-entry-first .fde-entry-node,
+    #fde-entry-first .fde-nav-item,
+    #fde-entry-first .fde-mode-option {
+      border: 0;
+      cursor: pointer;
+    }
+    #fde-entry-first .fde-tab {
+      padding: 7px 12px;
+      border-radius: 6px;
+      color: #aebdd0;
+      background: transparent;
+      white-space: nowrap;
+    }
+    #fde-entry-first .fde-tab[aria-selected="true"] {
+      color: #ffffff;
+      background: #30435f;
+    }
+    #fde-entry-first .fde-top-actions { justify-content: flex-end; gap: 8px; }
+    #fde-entry-first .fde-project-context {
+      max-width: 180px;
+      overflow: hidden;
+      color: #c5d2e3;
+      font-size: 12px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    #fde-entry-first .fde-icon-action {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid #40526b;
+      border-radius: 8px;
+      color: #dbe7f6;
+      background: transparent;
+    }
+    #fde-entry-first .fde-icon-action svg,
+    #fde-entry-first .fde-nav-item svg,
+    #fde-entry-first .fde-primary-action svg,
+    #fde-entry-first .fde-secondary-action svg,
+    #fde-entry-first .fde-mode-action svg,
+    #fde-entry-first .fde-node-icon svg,
+    #fde-entry-first .fde-list-icon svg { width: 16px; height: 16px; }
+    #fde-entry-first .fde-view { display: none; }
+    #fde-entry-first[data-section="blueprint"] .fde-blueprint-view,
+    #fde-entry-first[data-section="workbench"] .fde-workbench-view { display: block; }
+
+    #fde-entry-first .fde-blueprint-view { padding: 20px; }
+    #fde-entry-first .fde-section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 380px);
+      gap: 26px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+    #fde-entry-first .fde-section-head h2 {
+      margin: 0 0 6px;
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.12;
+      letter-spacing: -.025em;
+      font-weight: 600;
+    }
+    #fde-entry-first .fde-section-head p {
+      margin: 0;
+      color: var(--fde-muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    #fde-entry-first .fde-architecture {
+      display: grid;
+      grid-template-columns: minmax(220px, .9fr) minmax(290px, 1.2fr) minmax(220px, .9fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+    #fde-entry-first .fde-arch-lane {
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid var(--fde-border);
+      border-radius: 10px;
+      background: var(--fde-panel);
+    }
+    #fde-entry-first .fde-lane-label {
+      margin: 0 0 10px;
+      color: var(--fde-muted);
+      font-size: 11px;
+      font-weight: 600;
+    }
+    #fde-entry-first .fde-entry-stack { display: grid; gap: 8px; }
+    #fde-entry-first .fde-entry-node {
+      width: 100%;
+      padding: 11px;
+      border: 1px solid var(--fde-border);
+      border-radius: 8px;
+      color: var(--fde-text);
+      background: var(--fde-surface);
+      text-align: left;
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
+    }
+    #fde-entry-first .fde-entry-node:hover { transform: translateY(-1px); }
+    #fde-entry-first .fde-entry-node[aria-pressed="true"] {
+      border-color: var(--fde-accent);
+      background: var(--fde-accent-soft);
+    }
+    #fde-entry-first .fde-entry-node.is-prominent { min-height: 104px; }
+    #fde-entry-first .fde-entry-node.is-secondary { min-height: 78px; }
+    #fde-entry-first .fde-mode-title { gap: 8px; }
+    #fde-entry-first .fde-mode-title strong { font-size: 13px; font-weight: 650; }
+    #fde-entry-first .fde-mode-title span {
+      margin-left: auto;
+      color: var(--fde-accent);
+      font-size: 10px;
+      font-weight: 600;
+    }
+    #fde-entry-first .fde-entry-node p {
+      margin: 7px 0 0;
+      color: var(--fde-muted);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+    #fde-entry-first .fde-core {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 10px;
+      height: 100%;
+    }
+    #fde-entry-first .fde-core-banner {
+      padding: 12px;
+      border-radius: 8px;
+      color: var(--fde-accent-ink);
+      background: var(--fde-accent);
+    }
+    #fde-entry-first .fde-core-banner strong,
+    #fde-entry-first .fde-core-banner span { display: block; }
+    #fde-entry-first .fde-core-banner strong { font-size: 14px; font-weight: 650; }
+    #fde-entry-first .fde-core-banner span { margin-top: 4px; font-size: 11px; opacity: .88; }
+    #fde-entry-first .fde-entry-detail {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      align-content: start;
+    }
+    #fde-entry-first .fde-detail-step {
+      min-width: 0;
+      padding: 10px;
+      border-radius: 8px;
+      background: var(--fde-surface);
+    }
+    #fde-entry-first .fde-detail-step strong,
+    #fde-entry-first .fde-detail-step span { display: block; }
+    #fde-entry-first .fde-detail-step strong { font-size: 11px; font-weight: 650; }
+    #fde-entry-first .fde-detail-step span { margin-top: 4px; color: var(--fde-muted); font-size: 10px; line-height: 1.4; }
+    #fde-entry-first .fde-baseline {
+      padding: 10px 12px;
+      border: 1px solid var(--fde-border-strong);
+      border-radius: 8px;
+      background: var(--fde-surface-strong);
+    }
+    #fde-entry-first .fde-baseline strong { display: block; font-size: 12px; font-weight: 650; }
+    #fde-entry-first .fde-baseline span { display: block; margin-top: 3px; color: var(--fde-muted); font-size: 10px; }
+    #fde-entry-first .fde-delivery-stack { display: grid; gap: 8px; }
+    #fde-entry-first .fde-delivery-block {
+      padding: 10px;
+      border-left: 3px solid var(--fde-accent);
+      border-radius: 0 8px 8px 0;
+      background: var(--fde-surface);
+    }
+    #fde-entry-first .fde-delivery-block strong,
+    #fde-entry-first .fde-delivery-block span { display: block; }
+    #fde-entry-first .fde-delivery-block strong { font-size: 11px; font-weight: 650; }
+    #fde-entry-first .fde-delivery-block span { margin-top: 3px; color: var(--fde-muted); font-size: 10px; line-height: 1.4; }
+    #fde-entry-first .fde-control-plane {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(180px, .75fr) repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 10px;
+      color: var(--fde-sidebar-text);
+      background: var(--fde-sidebar);
+    }
+    #fde-entry-first .fde-control-intro strong,
+    #fde-entry-first .fde-control-intro span,
+    #fde-entry-first .fde-control-item strong,
+    #fde-entry-first .fde-control-item span { display: block; }
+    #fde-entry-first .fde-control-intro strong { font-size: 12px; font-weight: 650; }
+    #fde-entry-first .fde-control-intro span { margin-top: 4px; color: var(--fde-sidebar-muted); font-size: 10px; line-height: 1.4; }
+    #fde-entry-first .fde-control-item {
+      padding: 9px;
+      border-radius: 8px;
+      background: var(--fde-sidebar-2);
+    }
+    #fde-entry-first .fde-control-item strong { font-size: 10px; font-weight: 650; }
+    #fde-entry-first .fde-control-item span { margin-top: 4px; color: var(--fde-sidebar-muted); font-size: 9px; line-height: 1.35; }
+
+    #fde-entry-first .fde-workbench-view { background: var(--fde-bg); }
+    #fde-entry-first .fde-app-shell {
+      display: grid;
+      grid-template-columns: 188px minmax(0, 1fr);
+      min-height: 760px;
+    }
+    #fde-entry-first .fde-sidebar {
+      padding: 12px 10px;
+      color: var(--fde-sidebar-text);
+      background: var(--fde-sidebar);
+    }
+    #fde-entry-first .fde-new-engagement {
+      width: 100%;
+      margin-bottom: 13px;
+      padding: 10px 11px;
+      border: 0;
+      border-radius: 8px;
+      color: #ffffff;
+      background: #0b63ce;
+      text-align: left;
+      cursor: pointer;
+    }
+    #fde-entry-first .fde-new-engagement strong,
+    #fde-entry-first .fde-new-engagement span { display: block; }
+    #fde-entry-first .fde-new-engagement strong { font-size: 12px; font-weight: 650; }
+    #fde-entry-first .fde-new-engagement span { margin-top: 3px; color: #d9eaff; font-size: 10px; }
+    #fde-entry-first .fde-nav-label {
+      margin: 14px 8px 5px;
+      color: var(--fde-sidebar-muted);
+      font-size: 10px;
+      font-weight: 600;
+    }
+    #fde-entry-first .fde-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      margin: 2px 0;
+      padding: 8px;
+      border-radius: 7px;
+      color: #bdcbe0;
+      background: transparent;
+      text-align: left;
+    }
+    #fde-entry-first .fde-nav-item.is-current { color: #ffffff; background: var(--fde-sidebar-2); }
+    #fde-entry-first .fde-nav-item span { margin-left: auto; color: var(--fde-sidebar-muted); font-size: 10px; }
+    #fde-entry-first .fde-main { min-width: 0; padding: 18px; }
+    #fde-entry-first .fde-main-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    #fde-entry-first .fde-main-head h2 { margin: 0 0 5px; font-size: 22px; line-height: 1.2; font-weight: 650; letter-spacing: -.02em; }
+    #fde-entry-first .fde-main-head p { margin: 0; color: var(--fde-muted); font-size: 12px; line-height: 1.45; }
+    #fde-entry-first .fde-main-head .fde-inline { margin-left: auto; gap: 8px; }
+    #fde-entry-first .fde-secondary-action,
+    #fde-entry-first .fde-primary-action,
+    #fde-entry-first .fde-mode-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 36px;
+      padding: 8px 11px;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+    #fde-entry-first .fde-secondary-action {
+      border: 1px solid var(--fde-border-strong);
+      color: var(--fde-text);
+      background: var(--fde-panel);
+    }
+    #fde-entry-first .fde-primary-action,
+    #fde-entry-first .fde-mode-action.is-primary { color: var(--fde-accent-ink); background: var(--fde-accent); }
+    #fde-entry-first .fde-mode-action:not(.is-primary) { color: var(--fde-text); background: var(--fde-surface-strong); }
+    #fde-entry-first .fde-prototype-variant { display: none; }
+    #fde-entry-first[data-variant="a"] .fde-variant-a,
+    #fde-entry-first[data-variant="b"] .fde-variant-b,
+    #fde-entry-first[data-variant="c"] .fde-variant-c { display: block; }
+    #fde-entry-first .fde-entry-hero {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    #fde-entry-first .fde-mode-panel {
+      position: relative;
+      min-height: 188px;
+      padding: 16px;
+      overflow: hidden;
+      border: 1px solid var(--fde-border);
+      border-radius: 10px;
+      background: var(--fde-panel);
+    }
+    #fde-entry-first .fde-mode-panel.is-featured { border-color: var(--fde-accent); }
+    #fde-entry-first .fde-node-icon {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      color: var(--fde-accent);
+      background: var(--fde-accent-soft);
+    }
+    #fde-entry-first .fde-mode-panel h3 { margin: 13px 0 6px; font-size: 16px; font-weight: 650; }
+    #fde-entry-first .fde-mode-panel p { margin: 0; max-width: 46ch; color: var(--fde-muted); font-size: 11px; line-height: 1.5; }
+    #fde-entry-first .fde-mode-panel .fde-mode-action { margin-top: 14px; }
+    #fde-entry-first .fde-mode-meta { margin-top: 11px; color: var(--fde-faint); font-size: 10px; }
+    #fde-entry-first .fde-discovery-strip {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr) auto;
+      gap: 11px;
+      align-items: center;
+      margin-bottom: 14px;
+      padding: 11px 13px;
+      border: 1px solid var(--fde-border);
+      border-radius: 10px;
+      background: var(--fde-surface);
+    }
+    #fde-entry-first .fde-discovery-strip strong,
+    #fde-entry-first .fde-discovery-strip span { display: block; }
+    #fde-entry-first .fde-discovery-strip strong { font-size: 12px; font-weight: 650; }
+    #fde-entry-first .fde-discovery-strip span { margin-top: 3px; color: var(--fde-muted); font-size: 10px; }
+    #fde-entry-first .fde-dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(230px, .7fr);
+      gap: 12px;
+    }
+    #fde-entry-first .fde-pane {
+      border: 1px solid var(--fde-border);
+      border-radius: 10px;
+      background: var(--fde-panel);
+    }
+    #fde-entry-first .fde-pane-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 43px;
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--fde-border);
+    }
+    #fde-entry-first .fde-pane-head strong { font-size: 12px; font-weight: 650; }
+    #fde-entry-first .fde-pane-head span { margin-left: auto; color: var(--fde-muted); font-size: 10px; }
+    #fde-entry-first .fde-engagement-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid var(--fde-border);
+    }
+    #fde-entry-first .fde-engagement-row:last-child { border-bottom: 0; }
+    #fde-entry-first .fde-engagement-row strong,
+    #fde-entry-first .fde-engagement-row span { display: block; }
+    #fde-entry-first .fde-engagement-row strong { font-size: 11px; font-weight: 650; }
+    #fde-entry-first .fde-engagement-row span { margin-top: 3px; color: var(--fde-muted); font-size: 10px; line-height: 1.4; }
+    #fde-entry-first .fde-row-status { color: var(--fde-accent); font-size: 10px; font-weight: 650; }
+    #fde-entry-first .fde-attention-list { padding: 4px 12px 8px; }
+    #fde-entry-first .fde-attention-item {
+      display: grid;
+      grid-template-columns: 25px minmax(0, 1fr);
+      gap: 9px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--fde-border);
+    }
+    #fde-entry-first .fde-attention-item:last-child { border-bottom: 0; }
+    #fde-entry-first .fde-list-icon {
+      display: grid;
+      place-items: center;
+      width: 25px;
+      height: 25px;
+      border-radius: 7px;
+      color: var(--fde-accent);
+      background: var(--fde-accent-soft);
+    }
+    #fde-entry-first .fde-attention-item strong,
+    #fde-entry-first .fde-attention-item span { display: block; }
+    #fde-entry-first .fde-attention-item strong { font-size: 10px; font-weight: 650; }
+    #fde-entry-first .fde-attention-item span { margin-top: 2px; color: var(--fde-muted); font-size: 9px; line-height: 1.4; }
+
+    #fde-entry-first .fde-b-layout {
+      display: grid;
+      grid-template-columns: minmax(250px, .72fr) minmax(0, 1.28fr);
+      gap: 12px;
+    }
+    #fde-entry-first .fde-mode-rail {
+      padding: 13px;
+      border: 1px solid var(--fde-border);
+      border-radius: 10px;
+      background: var(--fde-panel);
+    }
+    #fde-entry-first .fde-mode-rail h3 { margin: 0 0 5px; font-size: 14px; font-weight: 650; }
+    #fde-entry-first .fde-mode-rail > p { margin: 0 0 12px; color: var(--fde-muted); font-size: 10px; line-height: 1.45; }
+    #fde-entry-first .fde-mode-options { display: grid; gap: 7px; }
+    #fde-entry-first .fde-mode-option {
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      gap: 9px;
+      align-items: start;
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--fde-border);
+      border-radius: 8px;
+      color: var(--fde-text);
+      background: var(--fde-surface);
+      text-align: left;
+    }
+    #fde-entry-first .fde-mode-option.is-main { border-color: var(--fde-accent); }
+    #fde-entry-first .fde-mode-option strong,
+    #fde-entry-first .fde-mode-option span { display: block; }
+    #fde-entry-first .fde-mode-option strong { font-size: 11px; font-weight: 650; }
+    #fde-entry-first .fde-mode-option span { margin-top: 3px; color: var(--fde-muted); font-size: 9px; line-height: 1.35; }
+    #fde-entry-first .fde-mode-number {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      color: var(--fde-accent);
+      background: var(--fde-accent-soft);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    #fde-entry-first .fde-b-canvas { display: grid; gap: 12px; }
+    #fde-entry-first .fde-resume-banner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 10px;
+      color: var(--fde-accent-ink);
+      background: var(--fde-accent);
+    }
+    #fde-entry-first .fde-resume-banner strong,
+    #fde-entry-first .fde-resume-banner span { display: block; }
+    #fde-entry-first .fde-resume-banner strong { font-size: 13px; font-weight: 650; }
+    #fde-entry-first .fde-resume-banner span { margin-top: 4px; font-size: 10px; opacity: .9; }
+    #fde-entry-first .fde-resume-banner .fde-secondary-action { color: var(--fde-text); background: var(--fde-panel); border-color: transparent; }
+    #fde-entry-first .fde-process-map {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+      padding: 12px;
+    }
+    #fde-entry-first .fde-process-cell {
+      padding: 10px;
+      border-radius: 8px;
+      background: var(--fde-surface);
+    }
+    #fde-entry-first .fde-process-cell strong,
+    #fde-entry-first .fde-process-cell span { display: block; }
+    #fde-entry-first .fde-process-cell strong { font-size: 10px; font-weight: 650; }
+    #fde-entry-first .fde-process-cell span { margin-top: 4px; color: var(--fde-muted); font-size: 9px; line-height: 1.35; }
+
+    #fde-entry-first .fde-c-command {
+      padding: 16px;
+      border: 1px solid var(--fde-border);
+      border-radius: 10px;
+      background: var(--fde-panel);
+    }
+    #fde-entry-first .fde-c-command h3 { margin: 0 0 6px; font-size: 16px; font-weight: 650; }
+    #fde-entry-first .fde-c-command > p { margin: 0 0 13px; color: var(--fde-muted); font-size: 11px; }
+    #fde-entry-first .fde-command-modes {
+      display: grid;
+      grid-template-columns: 1fr 1fr .62fr;
+      gap: 7px;
+      margin-bottom: 12px;
+    }
+    #fde-entry-first .fde-command-mode {
+      padding: 11px;
+      border: 1px solid var(--fde-border);
+      border-radius: 8px;
+      background: var(--fde-surface);
+    }
+    #fde-entry-first .fde-command-mode.is-current { border-color: var(--fde-accent); background: var(--fde-accent-soft); }
+    #fde-entry-first .fde-command-mode strong,
+    #fde-entry-first .fde-command-mode span { display: block; }
+    #fde-entry-first .fde-command-mode strong { font-size: 11px; font-weight: 650; }
+    #fde-entry-first .fde-command-mode span { margin-top: 3px; color: var(--fde-muted); font-size: 9px; line-height: 1.35; }
+    #fde-entry-first .fde-dropzone {
+      display: grid;
+      place-items: center;
+      min-height: 170px;
+      padding: 18px;
+      border: 1px dashed var(--fde-border-strong);
+      border-radius: 8px;
+      background: var(--fde-surface);
+      text-align: center;
+    }
+    #fde-entry-first .fde-dropzone .fde-node-icon { margin-bottom: 10px; }
+    #fde-entry-first .fde-dropzone strong,
+    #fde-entry-first .fde-dropzone span { display: block; }
+    #fde-entry-first .fde-dropzone strong { font-size: 12px; font-weight: 650; }
+    #fde-entry-first .fde-dropzone span { max-width: 54ch; margin-top: 4px; color: var(--fde-muted); font-size: 10px; line-height: 1.4; }
+    #fde-entry-first .fde-dropzone .fde-primary-action { margin-top: 12px; }
+    #fde-entry-first .fde-c-lower { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(220px, .8fr); gap: 12px; margin-top: 12px; }
+
+    #fde-entry-first .fde-variant-switcher {
+      justify-content: center;
+      gap: 5px;
+      margin: 14px auto 0;
+      padding: 5px;
+      width: fit-content;
+      max-width: 100%;
+      border: 1px solid var(--fde-border);
+      border-radius: 9px;
+      background: var(--fde-panel);
+    }
+    #fde-entry-first .fde-variant-button {
+      padding: 7px 10px;
+      border-radius: 6px;
+      color: var(--fde-muted);
+      background: transparent;
+      white-space: nowrap;
+    }
+    #fde-entry-first .fde-variant-button[aria-pressed="true"] { color: var(--fde-accent-ink); background: var(--fde-accent); }
+    #fde-entry-first .fde-selection-note {
+      margin: 9px 0 0;
+      color: var(--fde-muted);
+      font-size: 10px;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      #fde-entry-first .fde-topbar { grid-template-columns: 1fr auto; }
+      #fde-entry-first .fde-tabs { grid-column: 1 / -1; grid-row: 2; justify-self: stretch; }
+      #fde-entry-first .fde-tab { flex: 1 1 0; }
+      #fde-entry-first .fde-project-context { display: none; }
+      #fde-entry-first .fde-section-head,
+      #fde-entry-first .fde-architecture,
+      #fde-entry-first .fde-entry-hero,
+      #fde-entry-first .fde-dashboard-grid,
+      #fde-entry-first .fde-b-layout,
+      #fde-entry-first .fde-c-lower { grid-template-columns: 1fr; }
+      #fde-entry-first .fde-control-plane { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #fde-entry-first .fde-control-intro { grid-column: 1 / -1; }
+      #fde-entry-first .fde-app-shell { grid-template-columns: 1fr; }
+      #fde-entry-first .fde-sidebar { display: none; }
+      #fde-entry-first .fde-main-head { display: grid; }
+      #fde-entry-first .fde-main-head .fde-inline { margin-left: 0; }
+      #fde-entry-first .fde-command-modes { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      #fde-entry-first .fde-blueprint-view,
+      #fde-entry-first .fde-main { padding: 12px; }
+      #fde-entry-first .fde-top-actions { display: none; }
+      #fde-entry-first .fde-topbar { grid-template-columns: 1fr; }
+      #fde-entry-first .fde-entry-detail,
+      #fde-entry-first .fde-control-plane,
+      #fde-entry-first .fde-process-map { grid-template-columns: 1fr; }
+      #fde-entry-first .fde-discovery-strip { grid-template-columns: 34px minmax(0, 1fr); }
+      #fde-entry-first .fde-discovery-strip .fde-secondary-action { grid-column: 1 / -1; width: 100%; }
+      #fde-entry-first .fde-resume-banner { grid-template-columns: 1fr; }
+      #fde-entry-first .fde-variant-switcher { display: grid; width: 100%; grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #fde-entry-first * { scroll-behavior: auto !important; transition-duration: 0s !important; }
+    }
+  </style>
+
+  <section class="fde-window" aria-label="FDE 工作台设计图和草稿原型">
+    <header class="fde-topbar">
+      <div class="fde-brand">
+        <div class="fde-mark">F</div>
+        <div class="fde-brand-copy">
+          <strong>FDE 工作台</strong>
+          <span>从企业资料到可验证交付</span>
+        </div>
+      </div>
+      <nav class="fde-tabs" aria-label="查看内容">
+        <button class="fde-tab" type="button" data-section-target="blueprint" aria-selected="true">系统设计图</button>
+        <button class="fde-tab" type="button" data-section-target="workbench" aria-selected="false">工作台原型</button>
+      </nav>
+      <div class="fde-top-actions">
+        <span class="fde-project-context">华东制造数字化项目</span>
+        <button class="fde-icon-action" type="button" aria-label="查看通知"><i data-lucide="bell" aria-hidden="true"></i></button>
+        <button class="fde-icon-action" type="button" aria-label="项目设置"><i data-lucide="settings-2" aria-hidden="true"></i></button>
+      </div>
+    </header>
+
+    <div class="fde-view fde-blueprint-view">
+      <div class="fde-section-head">
+        <div>
+          <h2>三种入口，一个交付核心</h2>
+          <p>Requirements 和 Takeover 是工作台首屏主入口。Discovery 保留为访谈驱动入口，三者最终汇入同一开发基线和追溯链。</p>
+        </div>
+        <p id="fde-entry-summary" aria-live="polite">当前查看：Takeover。企业资料与半成品代码先形成当前状态模型，再优化原型和开发基线。</p>
+      </div>
+
+      <div class="fde-architecture">
+        <section class="fde-arch-lane" aria-label="交付入口">
+          <p class="fde-lane-label">选择交付入口</p>
+          <div class="fde-entry-stack">
+            <button class="fde-entry-node is-prominent" type="button" data-entry="takeover" aria-pressed="true">
+              <div class="fde-mode-title"><strong>Takeover 接管模式</strong><span>主入口</span></div>
+              <p>企业资料、半成品代码、已有系统。先审计现状，再确定保留、优化与重构范围。</p>
+            </button>
+            <button class="fde-entry-node is-prominent" type="button" data-entry="requirements" aria-pressed="false">
+              <div class="fde-mode-title"><strong>Requirements 需求导入</strong><span>主入口</span></div>
+              <p>业务流程资料、需求文档、表格。结构化梳理后直接选择框架并生成小程序与后台原型。</p>
+            </button>
+            <button class="fde-entry-node is-secondary" type="button" data-entry="discovery" aria-pressed="false">
+              <div class="fde-mode-title"><strong>Discovery 企业调研</strong></div>
+              <p>从会议、录音和访谈开始，提取证据、痛点与当前流程。</p>
+            </button>
+          </div>
+        </section>
+
+        <section class="fde-arch-lane fde-core" aria-label="交付核心">
+          <div class="fde-core-banner">
+            <strong>Engagement Core</strong>
+            <span>版本、证据、确认、权限、影响传播与历史由工作台统一管理</span>
+          </div>
+          <div class="fde-entry-detail" id="fde-entry-detail" aria-live="polite"></div>
+          <div class="fde-baseline">
+            <strong>Development Baseline</strong>
+            <span>范围、目标流程、原型、接口、验收条件、技术选择和明确排除项</span>
+          </div>
+        </section>
+
+        <section class="fde-arch-lane" aria-label="交付执行">
+          <p class="fde-lane-label">统一进入交付执行</p>
+          <div class="fde-delivery-stack">
+            <div class="fde-delivery-block"><strong>方案与原型</strong><span>模板匹配、Figma、参考转换、Mock 数据、小程序和后台流程</span></div>
+            <div class="fde-delivery-block"><strong>Spec 与 Issues</strong><span>默认 mattpocock/skills，可替换为 FDE 自定义工作流</span></div>
+            <div class="fde-delivery-block"><strong>多 Agent 开发</strong><span>开发、对接、部署、验证和集成任务分权执行</span></div>
+            <div class="fde-delivery-block"><strong>测试与评审</strong><span>独立验证、流程截图、测试报告、评审团与定向回退</span></div>
+            <div class="fde-delivery-block"><strong>历史与复用</strong><span>结果信号更新模板、方案和技术选型权重</span></div>
+          </div>
+        </section>
+
+        <section class="fde-control-plane" aria-label="能力与执行控制">
+          <div class="fde-control-intro">
+            <strong>Capability 与执行控制层</strong>
+            <span>工作台保存任务真相。外部工具只提供协作投影或执行能力。</span>
+          </div>
+          <div class="fde-control-item"><strong>Engineering Workflow Pack</strong><span>默认版本锁定，可由 FDE 替换</span></div>
+          <div class="fde-control-item"><strong>GitHub / Gitee Issues</strong><span>Spec、任务、依赖和 PR 协作投影</span></div>
+          <div class="fde-control-item"><strong>本地 Agent / 可选 Orca</strong><span>Orca 仅勾选后检测，未安装时给出下载引导</span></div>
+        </section>
+      </div>
+    </div>
+
+    <div class="fde-view fde-workbench-view">
+      <div class="fde-app-shell">
+        <aside class="fde-sidebar" aria-label="工作台导航">
+          <button class="fde-new-engagement" type="button">
+            <strong>新建交付</strong>
+            <span>接管代码或导入需求</span>
+          </button>
+          <p class="fde-nav-label">工作区</p>
+          <button class="fde-nav-item is-current" type="button"><i data-lucide="layout-dashboard" aria-hidden="true"></i>总览</button>
+          <button class="fde-nav-item" type="button"><i data-lucide="inbox" aria-hidden="true"></i>待处理<span>5</span></button>
+          <button class="fde-nav-item" type="button"><i data-lucide="folder-kanban" aria-hidden="true"></i>交付项目</button>
+          <button class="fde-nav-item" type="button"><i data-lucide="presentation" aria-hidden="true"></i>演示准备</button>
+          <p class="fde-nav-label">资产与执行</p>
+          <button class="fde-nav-item" type="button"><i data-lucide="library" aria-hidden="true"></i>原型与方案库</button>
+          <button class="fde-nav-item" type="button"><i data-lucide="blocks" aria-hidden="true"></i>Skills 与 MCP</button>
+          <button class="fde-nav-item" type="button"><i data-lucide="server" aria-hidden="true"></i>执行节点</button>
+          <button class="fde-nav-item" type="button"><i data-lucide="history" aria-hidden="true"></i>历史沉淀</button>
+        </aside>
+
+        <main class="fde-main">
+          <div class="fde-main-head">
+            <div>
+              <h2>交付工作台</h2>
+              <p>先选择你已经拥有的材料，工作台会从正确位置开始。</p>
+            </div>
+            <div class="fde-inline">
+              <button class="fde-secondary-action" type="button"><i data-lucide="search" aria-hidden="true"></i>搜索项目</button>
+              <button class="fde-primary-action" type="button"><i data-lucide="plus" aria-hidden="true"></i>新建交付</button>
+            </div>
+          </div>
+
+          <section class="fde-prototype-variant fde-variant-a" aria-label="入口卡片布局">
+            <div class="fde-entry-hero">
+              <article class="fde-mode-panel is-featured">
+                <div class="fde-node-icon"><i data-lucide="code-xml" aria-hidden="true"></i></div>
+                <h3>Takeover 接管模式</h3>
+                <p>导入企业资料与半成品代码。工作台先扫描当前产品和代码结构，再帮助你优化原型与开发基线。</p>
+                <button class="fde-mode-action is-primary" type="button" data-mode-select="Takeover 接管模式">导入资料与代码 <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+                <div class="fde-mode-meta">支持仓库、本地目录、需求文档与现有原型</div>
+              </article>
+              <article class="fde-mode-panel is-featured">
+                <div class="fde-node-icon"><i data-lucide="file-input" aria-hidden="true"></i></div>
+                <h3>Requirements 需求导入模式</h3>
+                <p>导入业务流程和需求资料。完成结构化检查后，选择技术框架并生成小程序与后台原型。</p>
+                <button class="fde-mode-action is-primary" type="button" data-mode-select="Requirements 需求导入模式">导入需求资料 <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+                <div class="fde-mode-meta">支持文档、流程图、表格、链接与手工补充</div>
+              </article>
+            </div>
+            <div class="fde-discovery-strip">
+              <div class="fde-node-icon"><i data-lucide="audio-lines" aria-hidden="true"></i></div>
+              <div><strong>还没有整理好的资料？从 Discovery 开始</strong><span>连接飞书会议或上传录音，工作台协助完成企业调研和业务流程梳理。</span></div>
+              <button class="fde-secondary-action" type="button" data-mode-select="Discovery 企业调研模式">开始企业调研</button>
+            </div>
+            <div class="fde-dashboard-grid">
+              <section class="fde-pane">
+                <div class="fde-pane-head"><strong>继续最近的交付</strong><span>3 个进行中</span></div>
+                <div class="fde-engagement-row"><div><strong>华东制造数字化项目</strong><span>Takeover | 当前状态模型待确认 | 代码扫描已完成</span></div><div class="fde-row-status">继续接管</div></div>
+                <div class="fde-engagement-row"><div><strong>连锁零售会员小程序</strong><span>Requirements | 技术选型待确认 | 已生成目标流程</span></div><div class="fde-row-status">继续选型</div></div>
+                <div class="fde-engagement-row"><div><strong>园区合同管理平台</strong><span>Development | 7 个 Issues 进行中 | Orca 未启用</span></div><div class="fde-row-status">查看任务</div></div>
+              </section>
+              <section class="fde-pane">
+                <div class="fde-pane-head"><strong>需要你处理</strong><span>5 项</span></div>
+                <div class="fde-attention-list">
+                  <div class="fde-attention-item"><div class="fde-list-icon"><i data-lucide="git-compare" aria-hidden="true"></i></div><div><strong>确认代码保留范围</strong><span>华东制造数字化项目</span></div></div>
+                  <div class="fde-attention-item"><div class="fde-list-icon"><i data-lucide="workflow" aria-hidden="true"></i></div><div><strong>补充异常业务流程</strong><span>连锁零售会员小程序</span></div></div>
+                  <div class="fde-attention-item"><div class="fde-list-icon"><i data-lucide="plug-zap" aria-hidden="true"></i></div><div><strong>Orca 尚未安装</strong><span>仅在勾选 Orca 后出现下载引导</span></div></div>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <section class="fde-prototype-variant fde-variant-b" aria-label="固定入口轨道布局">
+            <div class="fde-b-layout">
+              <aside class="fde-mode-rail">
+                <h3>开始新的交付</h3>
+                <p>入口保持在首页左侧，适合频繁并行处理多个企业项目的 FDE。</p>
+                <div class="fde-mode-options">
+                  <button class="fde-mode-option is-main" type="button" data-mode-select="Takeover 接管模式"><span class="fde-mode-number">T</span><span><strong>Takeover 接管</strong><span>企业资料与半成品代码</span></span></button>
+                  <button class="fde-mode-option is-main" type="button" data-mode-select="Requirements 需求导入模式"><span class="fde-mode-number">R</span><span><strong>Requirements 导入</strong><span>业务流程与需求资料</span></span></button>
+                  <button class="fde-mode-option" type="button" data-mode-select="Discovery 企业调研模式"><span class="fde-mode-number">D</span><span><strong>Discovery 调研</strong><span>会议、录音与访谈</span></span></button>
+                </div>
+              </aside>
+              <div class="fde-b-canvas">
+                <section class="fde-resume-banner">
+                  <div><strong>华东制造数字化项目</strong><span>当前在 Takeover 模式，需要确认代码保留范围和原型优化目标。</span></div>
+                  <button class="fde-secondary-action" type="button">继续当前工作</button>
+                </section>
+                <section class="fde-pane">
+                  <div class="fde-pane-head"><strong>接管进度</strong><span>当前状态模型</span></div>
+                  <div class="fde-process-map">
+                    <div class="fde-process-cell"><strong>企业资料</strong><span>背景、流程、现有需求</span></div>
+                    <div class="fde-process-cell"><strong>代码扫描</strong><span>框架、模块、依赖与风险</span></div>
+                    <div class="fde-process-cell"><strong>原型优化</strong><span>保留、补全与调整</span></div>
+                    <div class="fde-process-cell"><strong>开发基线</strong><span>范围、验收与排除项</span></div>
+                  </div>
+                </section>
+                <div class="fde-dashboard-grid">
+                  <section class="fde-pane">
+                    <div class="fde-pane-head"><strong>项目列表</strong><span>按最近活动排序</span></div>
+                    <div class="fde-engagement-row"><div><strong>连锁零售会员小程序</strong><span>Requirements | 目标流程待确认</span></div><div class="fde-row-status">打开</div></div>
+                    <div class="fde-engagement-row"><div><strong>园区合同管理平台</strong><span>Development | Agent 任务执行中</span></div><div class="fde-row-status">打开</div></div>
+                  </section>
+                  <section class="fde-pane">
+                    <div class="fde-pane-head"><strong>能力状态</strong><span>当前项目</span></div>
+                    <div class="fde-attention-list">
+                      <div class="fde-attention-item"><div class="fde-list-icon"><i data-lucide="package-check" aria-hidden="true"></i></div><div><strong>默认 Workflow Pack</strong><span>版本已锁定，可自定义替换</span></div></div>
+                      <div class="fde-attention-item"><div class="fde-list-icon"><i data-lucide="server-off" aria-hidden="true"></i></div><div><strong>Orca 未选择</strong><span>当前使用本地 Agent</span></div></div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="fde-prototype-variant fde-variant-c" aria-label="导入命令中心布局">
+            <section class="fde-c-command">
+              <h3>创建交付项目</h3>
+              <p>先选择入口，再导入资料。工作台只显示该入口真正需要的下一步。</p>
+              <div class="fde-command-modes">
+                <div class="fde-command-mode is-current"><strong>Takeover 接管</strong><span>资料、代码与已有原型</span></div>
+                <div class="fde-command-mode"><strong>Requirements 导入</strong><span>需求、流程与业务规则</span></div>
+                <div class="fde-command-mode"><strong>Discovery</strong><span>会议与录音</span></div>
+              </div>
+              <div class="fde-dropzone">
+                <div>
+                  <div class="fde-node-icon"><i data-lucide="folder-input" aria-hidden="true"></i></div>
+                  <strong>添加企业资料与半成品代码</strong>
+                  <span>支持选择本地目录、Git 仓库、压缩包、需求文档和现有原型。导入后先生成当前状态模型，不直接进入开发。</span>
+                  <button class="fde-primary-action" type="button" data-mode-select="Takeover 接管模式">选择资料来源</button>
+                </div>
+              </div>
+            </section>
+            <div class="fde-c-lower">
+              <section class="fde-pane">
+                <div class="fde-pane-head"><strong>最近使用的入口</strong><span>便于快速复用</span></div>
+                <div class="fde-engagement-row"><div><strong>需求文档到小程序原型</strong><span>Requirements | FastAPI-Vue + 小程序 + 后台</span></div><div class="fde-row-status">再次使用</div></div>
+                <div class="fde-engagement-row"><div><strong>已有后台系统接管</strong><span>Takeover | 代码扫描 + 原型优化</span></div><div class="fde-row-status">再次使用</div></div>
+              </section>
+              <section class="fde-pane">
+                <div class="fde-pane-head"><strong>入口说明</strong><span>Takeover</span></div>
+                <div class="fde-attention-list">
+                  <div class="fde-attention-item"><div class="fde-list-icon"><i data-lucide="scan-search" aria-hidden="true"></i></div><div><strong>先形成现状</strong><span>识别现有能力、技术债与数据流</span></div></div>
+                  <div class="fde-attention-item"><div class="fde-list-icon"><i data-lucide="shield-check" aria-hidden="true"></i></div><div><strong>再确认目标</strong><span>不会把扫描结果直接视为开发要求</span></div></div>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <div class="fde-variant-switcher" aria-label="草稿布局切换">
+            <button class="fde-variant-button" type="button" data-variant-target="a" aria-pressed="true">A 入口卡片</button>
+            <button class="fde-variant-button" type="button" data-variant-target="b" aria-pressed="false">B 固定入口轨道</button>
+            <button class="fde-variant-button" type="button" data-variant-target="c" aria-pressed="false">C 导入命令中心</button>
+          </div>
+          <p class="fde-selection-note" id="fde-selection-note" aria-live="polite">推荐 A：Takeover 与 Requirements 在首屏并列，Discovery 保持可见但降低视觉权重。</p>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (() => {
+      const root = document.getElementById('fde-entry-first');
+      if (!root) return;
+
+      const entryData = {
+        takeover: {
+          summary: '当前查看：Takeover。企业资料与半成品代码先形成当前状态模型，再优化原型和开发基线。',
+          steps: [
+            ['资料与代码导入', '企业资料、仓库、本地目录、现有原型'],
+            ['当前状态模型', '识别能力、流程、依赖、风险和技术债'],
+            ['原型优化', '确认保留范围，补齐目标流程与交互'],
+            ['接管基线', '形成增量改造范围、验收条件和排除项']
+          ]
+        },
+        requirements: {
+          summary: '当前查看：Requirements。业务流程和需求资料经过结构化检查后，直接进入方案选型与双端原型。',
+          steps: [
+            ['需求资料导入', '文档、表格、流程图、链接和补充说明'],
+            ['结构化与差距检查', '角色、步骤、数据、规则、异常与待确认点'],
+            ['技术与模板选择', '框架、数据库、中间件和原型模板匹配'],
+            ['双端原型', '生成小程序与后台流程、页面和 Mock 数据']
+          ]
+        },
+        discovery: {
+          summary: '当前查看：Discovery。会议与录音先转成带证据的发现，再梳理当前流程、目标流程和解决方案。',
+          steps: [
+            ['会议与录音', '飞书会议、录音文件、企业背景资料'],
+            ['证据化发现', '说话人、原话片段、痛点、期望和待确认项'],
+            ['业务流程', '当前流程、目标流程、差距和进一步沟通'],
+            ['方案草案', '原型、技术选型和开发基线草案']
+          ]
+        }
+      };
+
+      const detail = root.querySelector('#fde-entry-detail');
+      const summary = root.querySelector('#fde-entry-summary');
+
+      const renderEntry = (key) => {
+        const data = entryData[key];
+        if (!data || !detail || !summary) return;
+        summary.textContent = data.summary;
+        detail.innerHTML = data.steps.map(([title, body]) => `<div class="fde-detail-step"><strong>${title}</strong><span>${body}</span></div>`).join('');
+        root.querySelectorAll('[data-entry]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.entry === key)));
+      };
+
+      root.querySelectorAll('[data-entry]').forEach((button) => {
+        button.addEventListener('click', () => renderEntry(button.dataset.entry));
+      });
+
+      root.querySelectorAll('[data-section-target]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = button.dataset.sectionTarget;
+          root.dataset.section = target;
+          root.querySelectorAll('[data-section-target]').forEach((tab) => tab.setAttribute('aria-selected', String(tab === button)));
+        });
+      });
+
+      const variantNames = {
+        a: '推荐 A：Takeover 与 Requirements 在首屏并列，Discovery 保持可见但降低视觉权重。',
+        b: '方案 B：入口固定在左侧，适合每天同时推进多个交付项目的高频 FDE。',
+        c: '方案 C：新建交付时聚焦导入动作，适合强调一次只完成一个入口任务。'
+      };
+
+      const setVariant = (variant) => {
+        if (!variantNames[variant]) return;
+        root.dataset.variant = variant;
+        root.querySelectorAll('[data-variant-target]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.variantTarget === variant)));
+        const note = root.querySelector('#fde-selection-note');
+        if (note) note.textContent = variantNames[variant];
+      };
+
+      root.querySelectorAll('[data-variant-target]').forEach((button) => {
+        button.addEventListener('click', () => setVariant(button.dataset.variantTarget));
+      });
+
+      root.querySelectorAll('[data-mode-select]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const note = root.querySelector('#fde-selection-note');
+          if (note) note.textContent = `已选择 ${button.dataset.modeSelect}。草稿原型不会导入真实资料。`;
+        });
+      });
+
+      root.addEventListener('keydown', (event) => {
+        const tag = event.target && event.target.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || event.target.isContentEditable) return;
+        if (root.dataset.section !== 'workbench') return;
+        const order = ['a', 'b', 'c'];
+        const current = Math.max(0, order.indexOf(root.dataset.variant));
+        if (event.key === 'ArrowLeft') setVariant(order[(current + order.length - 1) % order.length]);
+        if (event.key === 'ArrowRight') setVariant(order[(current + 1) % order.length]);
+      });
+
+      renderEntry('takeover');
+      if (window.lucide) window.lucide.createIcons({ attrs: { width: 16, height: 16 } });
+    })();
+  </script>
+</div>

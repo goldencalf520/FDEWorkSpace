@@ -1,0 +1,3 @@
+# Apply separate prototype and code acceptance gates
+
+Prototype acceptance evaluates business coverage, roles, states, interactions, usability, and accountable confirmation, while generated-code acceptance additionally requires an agreed solution profile, successful build and behavior, responsive and accessible output, dependency rights, security review, tests, and code quality. Before a solution profile is selected, the workbench may produce technology-neutral prototype artifacts but will not present framework-specific source as a formal development outcome; high visual similarity is a primary criterion only for an authorized reproduction.

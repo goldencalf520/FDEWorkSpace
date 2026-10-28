@@ -1,0 +1,3 @@
+# Require evidence for development completion
+
+A multi-agent development run may claim completion only when every development-baseline acceptance criterion maps to an executed test and all priority-zero and priority-one workflows pass with reproducible evidence. UI workflows require step-level screenshots or video, while API, migration, and other non-UI workflows require suitable execution evidence; conflicts, retries, failures, and human changes must remain visible in the report. An unexecuted test is never a passing test, because completion claims are verified conclusions rather than agent assertions.

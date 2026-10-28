@@ -1,0 +1,3 @@
+# Apply risk-tiered recognition verification
+
+The workbench will expose separate transcription, speaker-attribution, semantic-extraction, and evidentiary-support confidence for each finding. Ordinary content may use the default recognition path, while high-consequence content such as amounts, dates, regulations, interfaces, permissions, and acceptance conditions receives targeted rule or second-model verification and enters a human review queue when confidence or consistency is inadequate. This concentrates extra cost and latency where an error would materially affect delivery instead of applying expensive multi-model processing indiscriminately.

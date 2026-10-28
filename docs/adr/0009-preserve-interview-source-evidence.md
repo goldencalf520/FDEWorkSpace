@@ -1,0 +1,3 @@
+# Preserve interview source evidence
+
+The workbench must retain original recordings, source transcripts, speaker attribution state, and recording authorization as source evidence. Human corrections are stored as traceable annotations rather than overwrites, unknown speakers remain explicitly unknown, and contradictory statements remain separately attributable until an accountable person resolves them. Reprocessing with different context, models, or analysis instructions creates an immutable analysis version and exposes differences without replacing a version that an FDE or enterprise participant already confirmed. This preserves the distinction between what was said, what a model transcribed or inferred, and what a person later corrected or confirmed.

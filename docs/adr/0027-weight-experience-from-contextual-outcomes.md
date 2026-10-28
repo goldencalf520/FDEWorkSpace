@@ -1,0 +1,3 @@
+# Weight experience from contextual outcomes
+
+Reusable delivery assets gain or lose recommendation weight from attributable outcome signals including business acceptance, actual use, business effect, defects, maintenance cost, schedule, budget variance, review failures, and incidents. Weight is conditioned on industry, enterprise scale, region, compliance constraints, technology, team capability, complexity, evidence quality, and recency rather than becoming a universal ranking; negative outcomes retain their context, and recommendations explain which historical signals affected them and permit an FDE override with rationale.

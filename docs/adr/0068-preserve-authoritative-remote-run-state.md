@@ -1,0 +1,3 @@
+# Preserve authoritative remote-run state
+
+Treat the execution node and active attempt identifiers as authoritative for remote agent liveness, while the workbench remains authoritative for task meaning and acceptance. A completion message is only a candidate result pending independent verification; lost contact produces an Unverifiable Run State rather than failure, and retry, reassignment, cleanup, or merge requires positive lifecycle evidence plus lease, checkpoint, and idempotency controls. This conservative boundary may delay recovery, but prevents duplicate code changes, repeated external effects, conflicting merges, and accidental replacement of an agent that is still running.

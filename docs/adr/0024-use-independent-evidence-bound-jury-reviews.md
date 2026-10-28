@@ -1,0 +1,3 @@
+# Use independent evidence-bound jury reviews
+
+A jury evaluates a locked review snapshot, and an agent that implemented a capability may not judge that same capability. Each configurable review dimension declares its rubric, evidence, weight, minimum score, and veto conditions; absent required evidence produces an unscored result rather than an invented score. Subjective commercial value, enterprise retrospective, and target-user usability require named human input, while material disagreement between reviewers exposes their evidence and assumptions for accountable resolution instead of disappearing into an average.

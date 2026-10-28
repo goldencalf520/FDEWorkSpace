@@ -1,0 +1,3 @@
+# Preserve provenance and confirmation state
+
+Every material statement in a delivery engagement must retain its provenance and distinguish source evidence, AI inference, FDE confirmation, enterprise confirmation, and downstream verification. A confirmation that permits work to proceed must be attributable to a named accountable person rather than inferred from model confidence or anonymous activity. The system must not silently promote an AI interpretation into a fact, because an early misunderstanding would otherwise propagate into processes, prototypes, implementation, and review without a visible point of origin.

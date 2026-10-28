@@ -1,0 +1,3 @@
+# Separate engineering workflow from agent orchestration
+
+Use a version-locked `mattpocock/skills` Engineering Workflow Pack as the default path for producing specifications and issue-tracked development work, while allowing an FDE or organization to replace it with a compatible custom workflow. Treat Orca as an optional Orchestration Backend selected explicitly per permitted scope: selecting it triggers installation and compatibility detection, an absent runtime produces an official download prompt rather than an automatic install, and the workbench remains authoritative for task meaning, permissions, evidence, and acceptance. This separation preserves a productive default without locking delivery semantics to either a Skills repository or a particular agent runtime.

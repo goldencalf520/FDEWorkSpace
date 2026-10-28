@@ -1,0 +1,3 @@
+# Integrate the prototype library through a narrow contract
+
+The separately developed prototype library will expose a versioned contract for search, candidate resolution, rights state, import, and attributable outcome feedback rather than a shared database or internal schema. Each query receives only FDE-selected search context instead of an engagement's complete interviews, documents, or source code, and feedback is limited to template identity, usage classification, and reuse-policy-permitted outcome signals. An incompatible contract blocks new search and import while preserving access to imported branches and cached previews, protecting independent evolution, disclosure minimization, and existing engagement continuity.

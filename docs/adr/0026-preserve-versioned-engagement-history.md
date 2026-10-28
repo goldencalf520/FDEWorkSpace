@@ -1,0 +1,3 @@
+# Preserve versioned engagement history
+
+Evidence, confirmations, processes, solutions, prototypes, implementation, tests, reviews, and their relationships will form a versioned engagement history from which the current engagement view is projected. Updates do not silently rewrite prior decisions; supersession, impact, withdrawal, and deletion remain auditable events. Configurable retention policies may physically delete or cryptographically erase sensitive recordings, documents, code, logs, and screenshots and must remove their indexes, caches, and recoverable copies; the immutable history may retain only a content-free audit tombstone, while any surviving abstraction must be lawfully retained and unable to reveal the enterprise or deleted personal information.

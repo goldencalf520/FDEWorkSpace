@@ -1,0 +1,3 @@
+# Model traceability across delivery outcomes
+
+The workbench must preserve explicit many-to-many relationships from evidence and interview findings through pains, current-state process elements, target changes, acceptance criteria, prototypes, implementation tasks, tests, and review conclusions. Discussions, clarification questions, and decisions attach to the specific object they concern, and continuing from an unconfirmed dependency requires a named risk acceptance that remains visible on every dependent outcome. This graph makes unsupported scope additions, unresolved pains, unanswered process gaps, and stale downstream work discoverable.

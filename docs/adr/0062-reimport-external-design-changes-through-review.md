@@ -1,0 +1,3 @@
+# Reimport external design changes through review
+
+Changes made in Figma or another external authoring tool will re-enter the workbench through an explicit version comparison, selective merge, and new prototype version. The first product will not attempt live bidirectional synchronization, because external editor state must not overwrite confirmed delivery outcomes or conceal conflicts in requirements, flows, interactions, or design-system mappings. A disagreement with confirmed business or process outcomes becomes an attention item for accountable resolution rather than an automatic preference for either the design or the earlier conclusion.

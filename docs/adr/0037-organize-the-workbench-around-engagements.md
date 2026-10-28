@@ -1,0 +1,3 @@
+# Organize the workbench around engagements
+
+The primary information architecture will center on one delivery engagement's overall state, attention queue, provenance, risks, and next actions rather than presenting the seven delivery areas as separate applications. Guided and expert interaction modes operate over the same state, global search spans the permission-filtered delivery chain, and a traceability inspector makes source, confirmation, version, dependency, and impact information available from every meaningful outcome. Notifications are aggregated into responsible, actionable work instead of emitted independently by every agent or comment.

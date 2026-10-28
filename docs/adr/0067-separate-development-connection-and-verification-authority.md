@@ -1,0 +1,3 @@
+# Separate development, connection, and verification authority
+
+Represent development, external connection, environment/deployment, verification, and integration as separate task responsibilities with distinct Agent Work Contracts and least-privilege code, data, and credential scopes. A connection task may modify only its declared adapter boundary and use only its scoped Credential Grant; production writes, real payments, contract execution, message delivery, and production deployment require an authorized Decision Gate. Independent verification remains necessary even when one person chooses the same underlying model or runtime for several task types, preventing implementation access from silently becoming connection or acceptance authority.

@@ -1,0 +1,3 @@
+# Hide durable execution and storage behind deep modules
+
+Business modules submit intent to a Durable Orchestration module whose interface hides retry, checkpoint, budget, pause, cancellation, and execution-node routing behavior. Execution nodes receive authenticated tasks and temporary grants and return signed results and evidence without database access. Relational views, object and local content, rebuildable search indexes, secret stores, and execution logs remain separate internal implementations behind owning modules so callers cannot accidentally treat an index or worker log as the source of confirmed delivery truth.

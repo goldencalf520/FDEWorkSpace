@@ -1,0 +1,3 @@
+# License one platform with governed usage
+
+The primary customer is an FDE organization that manages multiple enterprises and engagements, while invited enterprise participants use scoped collaboration without requiring full workbench seats. The seven delivery areas remain one product and one traceability graph even when commercial entitlements vary by seat, execution volume, or advanced capability. Model, agent, and third-party usage supports both customer-owned credentials and managed capacity with project-level cost attribution; custody does not transfer ownership of customer recordings, code, data, or outcomes, and abstract experience remains subject to the accepted reuse policy rather than becoming an automatic training or resale right.

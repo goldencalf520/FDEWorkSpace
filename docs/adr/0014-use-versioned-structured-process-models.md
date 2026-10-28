@@ -1,0 +1,3 @@
+# Use versioned structured process models
+
+Business processes will be stored as structured, versioned models rather than diagram files, with current-state processes, target-state processes, and transformation gaps represented separately. The model must cover roles, steps, systems, data, rules, permissions, judgment points, and exceptional paths and may render multiple visual or textual views. Enterprise confirmation targets a specific process version; later changes expose affected-element differences so dependent outcomes can be re-examined without requiring blanket reapproval of unchanged content.

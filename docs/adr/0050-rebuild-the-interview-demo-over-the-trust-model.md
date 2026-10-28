@@ -1,0 +1,3 @@
+# Rebuild the interview demo over the trust model
+
+The existing enterprise-diagnosis demo will remain a behavioral reference for field-at-a-time interviewing, next-required-item guidance, read-back confirmation, completeness navigation, recording fallback, export, and report preview. The workbench will reimplement those behaviors over versioned source evidence, explicit inference and confirmation states, and durable engagement storage rather than migrating the demo's fixed six-module pages, local-storage schema, pain-count limit, or evidence-free report fallbacks; the six topics become a configurable default interview template.

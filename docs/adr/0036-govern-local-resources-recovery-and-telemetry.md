@@ -1,0 +1,3 @@
+# Govern local resources, recovery, and telemetry
+
+Execution nodes will enforce resource policies across CPU, GPU, memory, storage, power, network, and user activity so automation does not make an FDE workstation unusable. Control-plane state, knowledge indexes, and locally retained sensitive assets have separate encrypted and tested recovery profiles that do not imply unavailable local content has been backed up. Product telemetry is organization-controlled, inspectable, and limited by default to necessary performance, crash, and usage signals without recordings, prompts, code, enterprise identity, or business data.

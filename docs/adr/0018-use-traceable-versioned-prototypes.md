@@ -1,0 +1,3 @@
+# Use traceable versioned prototypes
+
+Prototype work will progress from a process-aligned low-fidelity skeleton to a visually refined clickable prototype. Every page, action, field, role variant, success state, and exceptional state must link to a target process element, data need, or acceptance criterion; coverage analysis exposes both unrepresented requirements and unsupported prototype scope. Enterprise confirmation targets an immutable prototype version, while approved changes propagate only to affected downstream outcomes. Prototype confirmation alone does not authorize development until data, interfaces, non-functional requirements, exceptional paths, and acceptance criteria form a complete development baseline.

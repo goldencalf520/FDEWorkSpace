@@ -1,0 +1,3 @@
+# Publish a tested capacity envelope
+
+The first external release will benchmark a provisional per-organization envelope of 50 internal FDE users, 20 concurrently active engagements, 200 recording hours and 100,000 traceable domain objects per engagement, approximately one million source lines per repository, and 20 concurrent agents. Ordinary interaction and permission-filtered search have separate responsiveness targets from long-running operations, while uploads, transcription, indexing, agent runs, builds, and tests expose truthful progress and resume idempotently from durable checkpoints. Pilot evidence will recalibrate the envelope instead of leaving scalability as an untested claim.

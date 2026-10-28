@@ -1,0 +1,3 @@
+# Separate final testing from product repair
+
+The final test agent may execute tests, maintain separately reviewed test infrastructure, collect evidence, and report defects, but it may not alter product behavior to obtain a passing report. Every development-baseline acceptance criterion maps to an automated test, a named manual test with evidence, or an explicit not-applicable decision; defects return to the development task graph and undergo independent reverification. Test environments and data are reproducible, retries remain visible and expose flaky results, risk-selected non-functional dimensions disclose omissions, and technical acceptance remains distinct from named FDE or enterprise business acceptance.
